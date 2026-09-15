@@ -7,3 +7,12 @@
    - [**ARDUINO UNO Code**](https://github.com/DanTheBasic/ObjectM4/blob/a41803727090d561d0544ce862c996d0f8201aef/download/uno.ino)
        - You might have to add more stuff here
 4. Upload those code (I think I don't have an explanation of which code to upload to which board, unless you're blind)
+
+
+# **Hardware**
+| **ESP32-CAM** | **ARDUINO UNO** |
+| ------------- | ------------- |
+| IO14 (TX) | Pin 2 |
+| IO13 (RX) | Pin 3 |
+| GND | GND  |
+| 5V | 5V |
