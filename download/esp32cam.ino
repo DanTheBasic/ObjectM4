@@ -1,12 +1,12 @@
-/* Edge Impulse Arduino setup for ESP32-CAM communicating with Arduino Uno */
+//HEY! DOWNLOAD THE MODEL ZIP FIRST, OR YOU CAN'T UPLOAD IT TO ESP32-CAM
+//DON'T CHANGE ANYTHING UNLESS YOU KNOW WHAT YOU'RE DOING
 
 #include <kritchathornAi-project-1_inferencing.h>
 #include "edge-impulse-sdk/dsp/image/image.hpp"
 #include "esp_camera.h"
-
-// Define Hardware Serial 2 for communication with Arduino Uno
-#define UNO_TX_PIN 14 // Connect to Uno RX (Pin 0)
-#define UNO_RX_PIN 13 // Connect to Uno TX (Pin 1)
+   
+#define UNO_TX_PIN 14 // Pin 2 UNO
+#define UNO_RX_PIN 13 // Pin 3 UNO
 
 #define CAMERA_MODEL_AI_THINKER
 
@@ -72,9 +72,8 @@ static int ei_camera_get_data(size_t offset, size_t length, float *out_ptr);
 
 void setup()
 {
-    Serial.begin(115200); // PC Serial Debugging
+    Serial.begin(115200);
     
-    // Initialize Hardware Serial connection to Arduino Uno
     Serial2.begin(9600, SERIAL_8N1, UNO_RX_PIN, UNO_TX_PIN);
 
     Serial.println("Edge Impulse Inferencing Demo");
@@ -120,7 +119,7 @@ void loop()
 #if EI_CLASSIFIER_OBJECT_DETECTION == 1
     for (uint32_t i = 0; i < result.bounding_boxes_count; i++) {
         ei_impulse_result_bounding_box_t bb = result.bounding_boxes[i];
-        if (bb.value > 0.6) { // Send detection if confidence > 60%
+        if (bb.value > 0.6) {
             Serial2.print("DETECTED:");
             Serial2.println(bb.label);
             
