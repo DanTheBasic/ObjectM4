@@ -15,3 +15,7 @@
 | IO13 (RX) | Pin 3 |
 | GND | GND  |
 | 5V | 5V |
+
+# **Mistake you might have done**
+- GND and 5V for ESP32-CAM **MUST** be separate from other stuff (e.g. servo, Ultrasonic) due to ESP32-CAM take it quite a lot
+![](https://github.com/DanTheBasic/SchoolProject/blob/main/ObjectShapeDetecion%20M4/images/wiring.png)
